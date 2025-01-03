@@ -34,6 +34,7 @@ let joystick
 let joystickVelicina=10;
 let joystickTop
 let telefon = false;
+let joystick_poceo=false;
 
 let boje=["#5F5F5F","rgb(50, 168, 82)","rgb(50, 140, 168)","rgb(109, 50, 168)","rgb(168, 50, 50)"];
 
@@ -55,6 +56,7 @@ function setup() {
   joystickTop = createVector(0,0)
 
   telefon=/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  telefon=true;
 
   fi=PI;
   poljeVida=75 * PI/180 
@@ -90,12 +92,13 @@ function mouseReleased(){
   restartMovement()
 }
 
-function joystickPomeren(x, y){
-  if(dist(joystick.x,joystick.y,x,y)<=joystickVelicina || joystick_poceo){
-    let ugao=atan2(y-joystick.y,x-joystick.x)
+function joystickPomeren(){
+  if(dist(joystick.x,joystick.y,mouseX,mouseY)<=joystickVelicina || joystick_poceo){
+    let ugao=atan2(mouseY-joystick.y,mouseX-joystick.x)
     smerX=sin(ugao+PI/2)
     smerY=cos(ugao+PI/2)
     joystickTop=p5.Vector.sub(joystick,createVector(mouseX,mouseY))
+    joystick_poceo=true;
   }
   else{
     restartMovement()
@@ -105,12 +108,14 @@ function restartMovement(){
   smerX=0
   smerY=0
   joystickTop.set(0,0)
+  joystick_poceo=false;
 }
 
 function crtajJoystick(){
   fill(100,100)
   ellipse(joystick.x,joystick.y,joystickVelicina*2,joystickVelicina*2)
   fill(0,150)
+  joystickTop.limit(joystickVelicina)
   ellipse(joystick.x - joystickTop.x, joystick.y - joystickTop.y, joystickVelicina/4*3, joystickVelicina/4*3);
 
 }
