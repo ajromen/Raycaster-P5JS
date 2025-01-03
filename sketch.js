@@ -75,24 +75,25 @@ function keyReleased() {
   if (keyCode === 16) boost=1;
 }
 function touchMoved(){
-  if (telefon) joystickPomeren()
+  if (telefon && touches.length > 0) joystickPomeren(touches[0].x, touches[0].y);
 }
 function touchStarted(){
-  if (telefon) joystickPomeren()
+  if (telefon && touches.length > 0) joystickPomeren(touches[0].x, touches[0].y);
 }
 function touchEnded(){
   restartMovement()
 }
 function mousePressed(){
-  if (telefon) joystickPomeren()
+  if (!telefon) joystickPomeren(mouseX, mouseY);
 }
 function mouseReleased(){
   restartMovement()
 }
 
-function joystickPomeren(){
-  if(dist(joystick.x,joystick.y,mouseX,mouseY)<=joystickVelicina){
-    let ugao=atan2(mouseY-joystick.y,mouseX-joystick.x)
+function joystickPomeren(x, y){
+
+  if(dist(joystick.x,joystick.y,x,y)<=joystickVelicina || joystick_poceo){
+    let ugao=atan2(y-joystick.y,x-joystick.x)
     smerX=sin(ugao+PI/2)
     smerY=cos(ugao+PI/2)
     joystickTop=p5.Vector.sub(joystick,createVector(mouseX,mouseY))
