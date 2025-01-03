@@ -101,7 +101,6 @@ function joystickPomeren(){
     restartMovement()
   }
 }
-
 function restartMovement(){
   smerX=0
   smerY=0
