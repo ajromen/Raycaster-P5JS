@@ -73,11 +73,10 @@ let boost=1;
 let boje=["#5F5F5F","rgb(50, 168, 82)","rgb(50, 140, 168)","rgb(109, 50, 168)","rgb(168, 50, 50)"];
 
 function setup() {
-	if(windowHeight<windowWidth)
-		createCanvas(windowWidth,windowWidth/2);
-    else
-      createCanvas(windowHeight/2,windowHeight)
-  
+	let h = min(windowWidth / 2, windowHeight);
+  let w = h * 2;
+  createCanvas(w, h);
+
   c=floor(height/matDim);
   textAlign(LEFT,TOP);
   textSize(c/2)
