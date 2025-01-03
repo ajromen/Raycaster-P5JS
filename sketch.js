@@ -56,7 +56,7 @@ function setup() {
   joystickTop = createVector(0,0)
 
   telefon=/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-  telefon=true;
+  //telefon=true;
 
   fi=PI;
   poljeVida=75 * PI/180 
