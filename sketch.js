@@ -83,7 +83,7 @@ function touchStarted(){
   if (telefon && touches.length > 0) joystickPomeren(touches[0].x, touches[0].y);
 }
 function touchEnded(){
-  //restartMovement()
+  restartMovement()
 }
 function mousePressed(){
   if (!telefon) joystickPomeren(mouseX, mouseY);
