@@ -4,46 +4,6 @@ let okretanje=0;
 let smerX=0,smerY=0;
 let brzina;
 
-let mat1=[[0,1,0,0,1,0,0,0,0,1,1,1,0,1,0,0,1,1,0,0,1,0,0,0],
-          [0,1,1,0,1,1,1,1,0,0,0,0,0,1,1,1,1,0,0,0,1,0,0,0],
-          [0,0,1,0,0,1,0,1,1,1,1,0,0,1,0,1,0,0,0,1,1,1,0,0],
-          [0,0,1,1,1,1,0,0,0,0,1,1,1,1,0,1,0,0,1,1,0,1,0,0],
-          [0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0],
-          [0,1,1,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,1,1,1,0,0,0],
-          [0,1,0,0,0,1,1,1,1,1,0,0,1,1,1,1,0,0,0,0,1,1,1,0],
-          [0,1,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,1,0],
-          [0,0,1,1,1,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,1,1,0],
-          [0,0,0,0,0,1,1,1,1,1,1,1,1,0,0,1,1,1,0,0,1,0,0,0],
-          [0,1,1,0,0,1,0,0,0,0,0,0,0,0,0,1,0,1,1,1,1,1,0,0],
-          [0,0,1,0,0,1,0,0,0,0,0,0,1,1,1,1,0,0,0,0,0,1,0,0],
-          [0,0,1,1,1,1,0,0,0,1,1,1,0,1,0,0,0,1,1,1,0,1,1,0],
-          [0,0,1,0,0,1,1,1,1,1,0,0,1,1,0,0,0,1,0,1,0,0,1,0],
-          [0,0,1,1,0,1,0,0,0,0,0,1,1,0,0,0,1,1,0,1,1,1,1,0],
-          [0,0,0,1,0,1,0,0,1,1,1,1,0,0,0,0,1,0,0,0,0,0,0,0],
-          [0,0,0,1,0,1,0,0,0,0,0,1,1,1,0,0,1,1,0,0,0,0,0,0],
-          [0,1,1,1,0,1,0,0,0,1,1,0,0,0,1,0,0,1,1,1,1,1,0,0],
-          [0,1,0,0,0,1,1,1,1,1,0,0,0,0,1,1,1,1,0,0,0,0,0,0],
-          [0,1,0,0,0,1,0,0,1,0,0,0,1,1,0,0,1,0,0,0,0,0,0,0],
-          [0,1,1,1,0,1,0,0,1,1,1,1,1,0,0,0,1,1,1,1,0,0,0,0],
-          [0,0,1,0,0,1,0,0,0,0,0,0,1,1,1,1,0,0,0,1,1,2,0,0]];
-
-let mata=[
-      [1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ,1, 1, 1, 1],
-      [1, 0, 5, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0, 1],
-      [1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1],
-      [1, 0, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0, 0, 1],
-      [1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 1, 0, 1],
-      [1, 1, 0, 1, 1, 0, 1, 0, 1, 0, 0, 0, 0, 1],
-      [1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1],
-      [1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 1],
-      [1, 0, 0, 1, 1, 0, 1, 1, 1, 0, 1, 1, 0, 1],
-      [1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1],
-      [1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1],
-      [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1],
-      [1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1],
-      [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
-    ];
-
 const mat=[
     [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
     [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
@@ -70,6 +30,11 @@ let trenutniFR=0;
 let brojac=0;
 let boost=1;
 
+let joystick
+let joystickVelicina=10;
+let joystickTop
+let telefon = false;
+
 let boje=["#5F5F5F","rgb(50, 168, 82)","rgb(50, 140, 168)","rgb(109, 50, 168)","rgb(168, 50, 50)"];
 
 function setup() {
@@ -85,6 +50,12 @@ function setup() {
   mestoUdarca=createVector(0,0,0);
   brzina=xEkrana/200;
   
+  joystickVelicina=height/joystickVelicina;
+  joystick= createVector(joystickVelicina+joystickVelicina/2,height-joystickVelicina-joystickVelicina/2);
+  joystickTop = createVector(0,0)
+
+  telefon=/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
   fi=PI;
   poljeVida=75 * PI/180 
 }
@@ -104,19 +75,45 @@ function keyReleased() {
   if (keyCode === 16) boost=1;
 }
 function touchMoved(){
-  smerX=1;
+  if (telefon) joystickPomeren()
 }
 function touchStarted(){
-  smerX=1
+  if (telefon) joystickPomeren()
 }
 function touchEnded(){
-  smerX=0
+  restartMovement()
 }
 function mousePressed(){
-  smerX=1;
+  if (telefon) joystickPomeren()
 }
 function mouseReleased(){
-  smerX=0;
+  restartMovement()
+}
+
+function joystickPomeren(){
+  if(dist(joystick.x,joystick.y,mouseX,mouseY)<=joystickVelicina){
+    let ugao=atan2(mouseY-joystick.y,mouseX-joystick.x)
+    smerX=sin(ugao+PI/2)
+    smerY=cos(ugao+PI/2)
+    joystickTop=p5.Vector.sub(joystick,createVector(mouseX,mouseY))
+  }
+  else{
+    restartMovement()
+  }
+}
+
+function restartMovement(){
+  smerX=0
+  smerY=0
+  joystickTop.set(0,0)
+}
+
+function crtajJoystick(){
+  fill(100,100)
+  ellipse(joystick.x,joystick.y,joystickVelicina*2,joystickVelicina*2)
+  fill(0,150)
+  ellipse(joystick.x - joystickTop.x, joystick.y - joystickTop.y, joystickVelicina/4*3, joystickVelicina/4*3);
+
 }
 
 function crtajMatricu(){
@@ -293,6 +290,10 @@ function draw() {
   fill(boje[1])
     text(trenutniFR,c/5,c/5)
   pop();
+
+  if (telefon) {
+    crtajJoystick();
+  }
   
   //saveCanvas('animacija'+brojac+'.jpg');
   brojac++;
